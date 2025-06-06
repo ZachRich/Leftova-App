@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6AAC57662DF3262600B6434E /* LeftovaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57652DF3262600B6434E /* LeftovaApp.swift */; };
+		6AAC57682DF3262600B6434E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57672DF3262600B6434E /* ContentView.swift */; };
+		6AAC576A2DF3262A00B6434E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC57692DF3262A00B6434E /* Assets.xcassets */; };
+		6AAC576D2DF3262A00B6434E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC576C2DF3262A00B6434E /* Preview Assets.xcassets */; };
+		6AAC576F2DF3262A00B6434E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC576E2DF3262A00B6434E /* Persistence.swift */; };
+		6AAC57722DF3262A00B6434E /* Leftova.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57702DF3262A00B6434E /* Leftova.xcdatamodeld */; };
+		6AAC577C2DF3262A00B6434E /* LeftovaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC577B2DF3262A00B6434E /* LeftovaTests.swift */; };
+		6AAC57862DF3262A00B6434E /* LeftovaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57852DF3262A00B6434E /* LeftovaUITests.swift */; };
+		6AAC57882DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57872DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6AAC57782DF3262A00B6434E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AAC575A2DF3262600B6434E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AAC57612DF3262600B6434E;
+			remoteInfo = Leftova;
+		};
+		6AAC57822DF3262A00B6434E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AAC575A2DF3262600B6434E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AAC57612DF3262600B6434E;
+			remoteInfo = Leftova;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6AAC57622DF3262600B6434E /* Leftova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leftova.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AAC57652DF3262600B6434E /* LeftovaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftovaApp.swift; sourceTree = "<group>"; };
+		6AAC57672DF3262600B6434E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6AAC57692DF3262A00B6434E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6AAC576C2DF3262A00B6434E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6AAC576E2DF3262A00B6434E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		6AAC57712DF3262A00B6434E /* Leftova.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Leftova.xcdatamodel; sourceTree = "<group>"; };
+		6AAC57772DF3262A00B6434E /* LeftovaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeftovaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AAC577B2DF3262A00B6434E /* LeftovaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftovaTests.swift; sourceTree = "<group>"; };
+		6AAC57812DF3262A00B6434E /* LeftovaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeftovaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AAC57852DF3262A00B6434E /* LeftovaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftovaUITests.swift; sourceTree = "<group>"; };
+		6AAC57872DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftovaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6AAC575F2DF3262600B6434E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AAC57742DF3262A00B6434E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AAC577E2DF3262A00B6434E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6AAC57592DF3262600B6434E = {
+			isa = PBXGroup;
+			children = (
+				6AAC57642DF3262600B6434E /* Leftova */,
+				6AAC577A2DF3262A00B6434E /* LeftovaTests */,
+				6AAC57842DF3262A00B6434E /* LeftovaUITests */,
+				6AAC57632DF3262600B6434E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6AAC57632DF3262600B6434E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC57622DF3262600B6434E /* Leftova.app */,
+				6AAC57772DF3262A00B6434E /* LeftovaTests.xctest */,
+				6AAC57812DF3262A00B6434E /* LeftovaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6AAC57642DF3262600B6434E /* Leftova */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC57652DF3262600B6434E /* LeftovaApp.swift */,
+				6AAC57672DF3262600B6434E /* ContentView.swift */,
+				6AAC57692DF3262A00B6434E /* Assets.xcassets */,
+				6AAC576E2DF3262A00B6434E /* Persistence.swift */,
+				6AAC57702DF3262A00B6434E /* Leftova.xcdatamodeld */,
+				6AAC576B2DF3262A00B6434E /* Preview Content */,
+			);
+			path = Leftova;
+			sourceTree = "<group>";
+		};
+		6AAC576B2DF3262A00B6434E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC576C2DF3262A00B6434E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6AAC577A2DF3262A00B6434E /* LeftovaTests */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC577B2DF3262A00B6434E /* LeftovaTests.swift */,
+			);
+			path = LeftovaTests;
+			sourceTree = "<group>";
+		};
+		6AAC57842DF3262A00B6434E /* LeftovaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC57852DF3262A00B6434E /* LeftovaUITests.swift */,
+				6AAC57872DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift */,
+			);
+			path = LeftovaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6AAC57612DF3262600B6434E /* Leftova */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AAC578B2DF3262A00B6434E /* Build configuration list for PBXNativeTarget "Leftova" */;
+			buildPhases = (
+				6AAC575E2DF3262600B6434E /* Sources */,
+				6AAC575F2DF3262600B6434E /* Frameworks */,
+				6AAC57602DF3262600B6434E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Leftova;
+			productName = Leftova;
+			productReference = 6AAC57622DF3262600B6434E /* Leftova.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6AAC57762DF3262A00B6434E /* LeftovaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AAC578E2DF3262A00B6434E /* Build configuration list for PBXNativeTarget "LeftovaTests" */;
+			buildPhases = (
+				6AAC57732DF3262A00B6434E /* Sources */,
+				6AAC57742DF3262A00B6434E /* Frameworks */,
+				6AAC57752DF3262A00B6434E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AAC57792DF3262A00B6434E /* PBXTargetDependency */,
+			);
+			name = LeftovaTests;
+			productName = LeftovaTests;
+			productReference = 6AAC57772DF3262A00B6434E /* LeftovaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6AAC57802DF3262A00B6434E /* LeftovaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AAC57912DF3262A00B6434E /* Build configuration list for PBXNativeTarget "LeftovaUITests" */;
+			buildPhases = (
+				6AAC577D2DF3262A00B6434E /* Sources */,
+				6AAC577E2DF3262A00B6434E /* Frameworks */,
+				6AAC577F2DF3262A00B6434E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AAC57832DF3262A00B6434E /* PBXTargetDependency */,
+			);
+			name = LeftovaUITests;
+			productName = LeftovaUITests;
+			productReference = 6AAC57812DF3262A00B6434E /* LeftovaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6AAC575A2DF3262600B6434E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					6AAC57612DF3262600B6434E = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					6AAC57762DF3262A00B6434E = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 6AAC57612DF3262600B6434E;
+					};
+					6AAC57802DF3262A00B6434E = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 6AAC57612DF3262600B6434E;
+					};
+				};
+			};
+			buildConfigurationList = 6AAC575D2DF3262600B6434E /* Build configuration list for PBXProject "Leftova" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6AAC57592DF3262600B6434E;
+			productRefGroup = 6AAC57632DF3262600B6434E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6AAC57612DF3262600B6434E /* Leftova */,
+				6AAC57762DF3262A00B6434E /* LeftovaTests */,
+				6AAC57802DF3262A00B6434E /* LeftovaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6AAC57602DF3262600B6434E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AAC576D2DF3262A00B6434E /* Preview Assets.xcassets in Resources */,
+				6AAC576A2DF3262A00B6434E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AAC57752DF3262A00B6434E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AAC577F2DF3262A00B6434E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6AAC575E2DF3262600B6434E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AAC576F2DF3262A00B6434E /* Persistence.swift in Sources */,
+				6AAC57722DF3262A00B6434E /* Leftova.xcdatamodeld in Sources */,
+				6AAC57682DF3262600B6434E /* ContentView.swift in Sources */,
+				6AAC57662DF3262600B6434E /* LeftovaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AAC57732DF3262A00B6434E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AAC577C2DF3262A00B6434E /* LeftovaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AAC577D2DF3262A00B6434E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AAC57882DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift in Sources */,
+				6AAC57862DF3262A00B6434E /* LeftovaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6AAC57792DF3262A00B6434E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AAC57612DF3262600B6434E /* Leftova */;
+			targetProxy = 6AAC57782DF3262A00B6434E /* PBXContainerItemProxy */;
+		};
+		6AAC57832DF3262A00B6434E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AAC57612DF3262600B6434E /* Leftova */;
+			targetProxy = 6AAC57822DF3262A00B6434E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6AAC57892DF3262A00B6434E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6AAC578A2DF3262A00B6434E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6AAC578C2DF3262A00B6434E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Leftova/Preview Content\"";
+				DEVELOPMENT_TEAM = 763CX3FV62;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZacharyRich.Leftova;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6AAC578D2DF3262A00B6434E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Leftova/Preview Content\"";
+				DEVELOPMENT_TEAM = 763CX3FV62;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZacharyRich.Leftova;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6AAC578F2DF3262A00B6434E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 763CX3FV62;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZacharyRich.LeftovaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Leftova.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Leftova";
+			};
+			name = Debug;
+		};
+		6AAC57902DF3262A00B6434E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 763CX3FV62;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZacharyRich.LeftovaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Leftova.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Leftova";
+			};
+			name = Release;
+		};
+		6AAC57922DF3262A00B6434E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 763CX3FV62;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZacharyRich.LeftovaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Leftova;
+			};
+			name = Debug;
+		};
+		6AAC57932DF3262A00B6434E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 763CX3FV62;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZacharyRich.LeftovaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Leftova;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6AAC575D2DF3262600B6434E /* Build configuration list for PBXProject "Leftova" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AAC57892DF3262A00B6434E /* Debug */,
+				6AAC578A2DF3262A00B6434E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AAC578B2DF3262A00B6434E /* Build configuration list for PBXNativeTarget "Leftova" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AAC578C2DF3262A00B6434E /* Debug */,
+				6AAC578D2DF3262A00B6434E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AAC578E2DF3262A00B6434E /* Build configuration list for PBXNativeTarget "LeftovaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AAC578F2DF3262A00B6434E /* Debug */,
+				6AAC57902DF3262A00B6434E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AAC57912DF3262A00B6434E /* Build configuration list for PBXNativeTarget "LeftovaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AAC57922DF3262A00B6434E /* Debug */,
+				6AAC57932DF3262A00B6434E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6AAC57702DF3262A00B6434E /* Leftova.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6AAC57712DF3262A00B6434E /* Leftova.xcdatamodel */,
+			);
+			currentVersion = 6AAC57712DF3262A00B6434E /* Leftova.xcdatamodel */;
+			path = Leftova.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6AAC575A2DF3262600B6434E /* Project object */;
+}
