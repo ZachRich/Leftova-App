@@ -20,10 +20,45 @@ protocol RecipeRepositoryProtocol {
 class RecipeRepository: RecipeRepositoryProtocol {
     private let client = SupabaseService.shared.client
     
-    // Configure decoder for proper date handling
+    // Configure decoder for proper date handling with timezone
     private let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
+        
+        // Create custom date formatter for Supabase's date format
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        decoder.dateDecodingStrategy = .custom { decoder in
+            let container = try decoder.singleValueContainer()
+            let dateString = try container.decode(String.self)
+            
+            // Try multiple date formats
+            let formats = [
+                "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ",
+                "yyyy-MM-dd'T'HH:mm:ss.SSSSSZ",
+                "yyyy-MM-dd'T'HH:mm:ssZ",
+                "yyyy-MM-dd'T'HH:mm:ss"
+            ]
+            
+            for format in formats {
+                formatter.dateFormat = format
+                if let date = formatter.date(from: dateString) {
+                    return date
+                }
+            }
+            
+            // If none work, try ISO8601 formatter
+            let isoFormatter = ISO8601DateFormatter()
+            isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+            if let date = isoFormatter.date(from: dateString) {
+                return date
+            }
+            
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Unable to decode date: \(dateString)")
+        }
+        
         return decoder
     }()
     
@@ -100,6 +135,7 @@ class RecipeRepository: RecipeRepositoryProtocol {
         } catch {
             print("❌ Failed to decode recipe")
             print("Raw data: \(String(data: response.data, encoding: .utf8) ?? "nil")")
+            print("Decoding error: \(error)")
             throw error
         }
     }
