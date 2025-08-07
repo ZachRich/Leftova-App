@@ -19,6 +19,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Saved", systemImage: "heart.fill")
                 }
+            
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person.fill")
+                }
         }
     }
 }

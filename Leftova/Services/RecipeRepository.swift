@@ -16,49 +16,30 @@ protocol RecipeRepositoryProtocol {
     func getSavedRecipes() async throws -> [Recipe]
 }
 
+// MARK: - Saved Recipe Model
+struct SavedRecipe: Codable {
+    let id: UUID?
+    let userId: String
+    let recipeId: UUID
+    let createdAt: Date?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case userId = "user_id"
+        case recipeId = "recipe_id"
+        case createdAt = "created_at"
+    }
+}
+
 // MARK: - Recipe Repository Implementation
 class RecipeRepository: RecipeRepositoryProtocol {
     private let client = SupabaseService.shared.client
+    private let authService = AuthenticationService.shared
     
-    // Configure decoder for proper date handling with timezone
+    // Configure decoder for proper date handling
     private let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        
-        // Create custom date formatter for Supabase's date format
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ"
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        
-        decoder.dateDecodingStrategy = .custom { decoder in
-            let container = try decoder.singleValueContainer()
-            let dateString = try container.decode(String.self)
-            
-            // Try multiple date formats
-            let formats = [
-                "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ",
-                "yyyy-MM-dd'T'HH:mm:ss.SSSSSZ",
-                "yyyy-MM-dd'T'HH:mm:ssZ",
-                "yyyy-MM-dd'T'HH:mm:ss"
-            ]
-            
-            for format in formats {
-                formatter.dateFormat = format
-                if let date = formatter.date(from: dateString) {
-                    return date
-                }
-            }
-            
-            // If none work, try ISO8601 formatter
-            let isoFormatter = ISO8601DateFormatter()
-            isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-            if let date = isoFormatter.date(from: dateString) {
-                return date
-            }
-            
-            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Unable to decode date: \(dateString)")
-        }
-        
+        decoder.dateDecodingStrategy = .iso8601
         return decoder
     }()
     
@@ -135,7 +116,6 @@ class RecipeRepository: RecipeRepositoryProtocol {
         } catch {
             print("❌ Failed to decode recipe")
             print("Raw data: \(String(data: response.data, encoding: .utf8) ?? "nil")")
-            print("Decoding error: \(error)")
             throw error
         }
     }
@@ -164,44 +144,80 @@ class RecipeRepository: RecipeRepositoryProtocol {
         return try decoder.decode([Recipe].self, from: response.data)
     }
     
-    // MARK: - Save/Favorite Methods
+    // MARK: - Save/Favorite Methods (Database-backed)
     
     func saveRecipe(_ recipeId: UUID) async throws {
-        var savedIds = UserDefaults.standard.stringArray(forKey: "savedRecipeIds") ?? []
+        guard let userId = authService.currentUserId else {
+            throw RepositoryError.notAuthenticated
+        }
         
-        if !savedIds.contains(recipeId.uuidString) {
-            savedIds.append(recipeId.uuidString)
-            UserDefaults.standard.set(savedIds, forKey: "savedRecipeIds")
+        print("💾 Saving recipe: \(recipeId) for user: \(userId)")
+        
+        // Check if already saved
+        let existingResponse = try await client
+            .from("saved_recipes")
+            .select("id")
+            .eq("user_id", value: userId)
+            .eq("recipe_id", value: recipeId.uuidString)
+            .execute()
+        
+        let existingSaved = try decoder.decode([SavedRecipe].self, from: existingResponse.data)
+        
+        if existingSaved.isEmpty {
+            // Save the recipe
+            let savedRecipe = SavedRecipe(
+                id: nil,
+                userId: userId,
+                recipeId: recipeId,
+                createdAt: nil
+            )
             
-            print("💾 Saved recipe: \(recipeId)")
+            _ = try await client
+                .from("saved_recipes")
+                .insert(savedRecipe)
+                .execute()
             
-            // If you have user authentication, you could save to database instead:
-            // try await client
-            //     .from("saved_recipes")
-            //     .insert(["user_id": userId, "recipe_id": recipeId.uuidString])
-            //     .execute()
+            print("✅ Recipe saved successfully")
+        } else {
+            print("ℹ️ Recipe already saved")
         }
     }
     
     func unsaveRecipe(_ recipeId: UUID) async throws {
-        var savedIds = UserDefaults.standard.stringArray(forKey: "savedRecipeIds") ?? []
-        savedIds.removeAll { $0 == recipeId.uuidString }
-        UserDefaults.standard.set(savedIds, forKey: "savedRecipeIds")
+        guard let userId = authService.currentUserId else {
+            throw RepositoryError.notAuthenticated
+        }
         
-        print("🗑️ Unsaved recipe: \(recipeId)")
+        print("🗑️ Unsaving recipe: \(recipeId) for user: \(userId)")
         
-        // If using database:
-        // try await client
-        //     .from("saved_recipes")
-        //     .delete()
-        //     .eq("user_id", value: userId)
-        //     .eq("recipe_id", value: recipeId.uuidString)
-        //     .execute()
+        _ = try await client
+            .from("saved_recipes")
+            .delete()
+            .eq("user_id", value: userId)
+            .eq("recipe_id", value: recipeId.uuidString)
+            .execute()
+        
+        print("✅ Recipe unsaved successfully")
     }
     
     func getSavedRecipeIds() async throws -> [UUID] {
-        let savedIds = UserDefaults.standard.stringArray(forKey: "savedRecipeIds") ?? []
-        return savedIds.compactMap { UUID(uuidString: $0) }
+        guard let userId = authService.currentUserId else {
+            // If not authenticated, return empty array or fall back to UserDefaults
+            let savedIds = UserDefaults.standard.stringArray(forKey: "savedRecipeIds") ?? []
+            return savedIds.compactMap { UUID(uuidString: $0) }
+        }
+        
+        print("📋 Fetching saved recipe IDs for user: \(userId)")
+        
+        let response = try await client
+            .from("saved_recipes")
+            .select("recipe_id")
+            .eq("user_id", value: userId)
+            .order("created_at", ascending: false)
+            .execute()
+        
+        let savedRecipes = try decoder.decode([SavedRecipe].self, from: response.data)
+        return savedRecipes.map { $0.recipeId }
     }
     
     func getSavedRecipes() async throws -> [Recipe] {
@@ -226,7 +242,16 @@ class RecipeRepository: RecipeRepositoryProtocol {
             recipes.append(contentsOf: batchRecipes)
         }
         
-        return recipes
+        // Sort recipes by the order they were saved
+        let sortedRecipes = recipes.sorted { recipe1, recipe2 in
+            if let index1 = savedIds.firstIndex(of: recipe1.id),
+               let index2 = savedIds.firstIndex(of: recipe2.id) {
+                return index1 < index2
+            }
+            return false
+        }
+        
+        return sortedRecipes
     }
     
     // MARK: - Helper Methods
@@ -292,6 +317,33 @@ class RecipeRepository: RecipeRepositoryProtocol {
         
         print("🗑️ Deleted recipe: \(id)")
     }
+    
+    // MARK: - Migration Helper
+    
+    func migrateSavedRecipesFromLocalStorage() async throws {
+        guard let userId = authService.currentUserId else {
+            throw RepositoryError.notAuthenticated
+        }
+        
+        let localSavedIds = UserDefaults.standard.stringArray(forKey: "savedRecipeIds") ?? []
+        guard !localSavedIds.isEmpty else { return }
+        
+        print("🔄 Migrating \(localSavedIds.count) saved recipes from local storage")
+        
+        for idString in localSavedIds {
+            if let recipeId = UUID(uuidString: idString) {
+                do {
+                    try await saveRecipe(recipeId)
+                } catch {
+                    print("❌ Failed to migrate recipe \(recipeId): \(error)")
+                }
+            }
+        }
+        
+        // Clear local storage after successful migration
+        UserDefaults.standard.removeObject(forKey: "savedRecipeIds")
+        print("✅ Migration completed and local storage cleared")
+    }
 }
 
 // MARK: - Error Handling Extension
@@ -300,6 +352,7 @@ extension RecipeRepository {
         case noResults
         case invalidInput
         case networkError(Error)
+        case notAuthenticated
         
         var errorDescription: String? {
             switch self {
@@ -309,6 +362,8 @@ extension RecipeRepository {
                 return "Invalid search parameters"
             case .networkError(let error):
                 return "Network error: \(error.localizedDescription)"
+            case .notAuthenticated:
+                return "You must be logged in to perform this action"
             }
         }
     }
