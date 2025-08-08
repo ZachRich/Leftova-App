@@ -39,7 +39,7 @@ enum Config {
     
     /// Supabase project URL - the base URL for your Supabase instance
     /// Format: https://your-project-ref.supabase.co
-    static let supabaseURL = "https://sfstuksodesluvsimeur.supabase.co"
+    static let supabaseURL = "https://APP.supabase.co"
     
     /**
      Supabase anonymous key for client-side authentication.
