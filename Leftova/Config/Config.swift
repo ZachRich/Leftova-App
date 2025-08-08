@@ -54,7 +54,7 @@ enum Config {
      Security: This key is safe for client-side use as it only allows
      operations permitted by your Row Level Security (RLS) policies.
      */
-    static let supabaseAnonKey = "sb_publishable_Ou-4yqES-UXuZ0B1gWpofA_i_TvgPSp"
+    static let supabaseAnonKey = "key"
     
     // MARK: - StoreKit Configuration
     
