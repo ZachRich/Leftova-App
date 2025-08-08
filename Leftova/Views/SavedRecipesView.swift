@@ -38,7 +38,9 @@ struct SavedRecipesView: View {
                         savedRecipeIds: Set(viewModel.savedRecipes.map { $0.id }),
                         onToggleSave: { recipeId in
                             Task {
-                                await viewModel.unsaveRecipe(recipeId)
+                                if let recipe = viewModel.savedRecipes.first(where: { $0.id == recipeId }) {
+                                    await viewModel.unsaveRecipe(recipe)
+                                }
                             }
                         }
                     )
@@ -48,48 +50,16 @@ struct SavedRecipesView: View {
             .task {
                 await viewModel.loadSavedRecipes()
             }
+            .refreshable {
+                await viewModel.refreshSavedRecipes()
+            }
+            .onAppear {
+                Task {
+                    await viewModel.loadSavedRecipes()
+                }
+            }
         }
     }
 }
 
-@MainActor
-class SavedRecipesViewModel: ObservableObject {
-    @Published var savedRecipes: [Recipe] = []
-    @Published var isLoading = false
-    
-    private let repository: RecipeRepositoryProtocol
-    
-    init(repository: RecipeRepositoryProtocol = RecipeRepository()) {
-        self.repository = repository
-    }
-    
-    func loadSavedRecipes() async {
-        isLoading = true
-        
-        do {
-            let savedIds = try await repository.getSavedRecipeIds()
-            var recipes: [Recipe] = []
-            
-            for id in savedIds {
-                if let recipe = try? await repository.getRecipe(id: id) {
-                    recipes.append(recipe)
-                }
-            }
-            
-            savedRecipes = recipes
-        } catch {
-            print("Failed to load saved recipes: \(error)")
-        }
-        
-        isLoading = false
-    }
-    
-    func unsaveRecipe(_ recipeId: UUID) async {
-        do {
-            try await repository.unsaveRecipe(recipeId)
-            savedRecipes.removeAll { $0.id == recipeId }
-        } catch {
-            print("Failed to unsave recipe: \(error)")
-        }
-    }
-}
+// SavedRecipesViewModel is now in its own file

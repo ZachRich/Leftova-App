@@ -1,0 +1,102 @@
+//
+//  Configuration.storekit
+//  Leftova
+//
+//  Created by Zach Rich on 8/7/25.
+//
+
+
+// MARK: - StoreKit Configuration File
+// Create a file called "Configuration.storekit" in your project
+// This is for testing in Xcode
+/*
+ Configuration.storekit content (JSON):
+ {
+   "identifier": "com.leftova.storekit.configuration",
+   "nonRenewingSubscriptions": [],
+   "products": [],
+   "settings": {
+     "askToBuyEnabled": false,
+     "billingIssueEnabled": false,
+     "billingRetryEnabled": false,
+     "familySharingEnabled": false,
+     "introductoryOfferEnabled": true,
+     "localizedPriceOverrides": {},
+     "renewalPacingEnabled": false,
+     "subscriptionGroupPacingEnabled": false
+   },
+   "subscriptionGroups": [
+     {
+       "id": "leftova_premium",
+       "localizations": [
+         {
+           "description": "Leftova Premium Subscription",
+           "displayName": "Leftova Premium",
+           "locale": "en_US"
+         }
+       ],
+       "name": "Leftova Premium",
+       "subscriptions": [
+         {
+           "adHocOffers": [],
+           "codeOffers": [],
+           "displayPrice": "4.99",
+           "familyShareable": false,
+           "groupNumber": 1,
+           "internalID": "com.leftova.premium.monthly",
+           "introductoryOffer": {
+             "displayPrice": "0",
+             "internalID": "leftova_trial",
+             "numberOfPeriods": 1,
+             "paymentMode": "free",
+             "subscriptionPeriod": "P2W"
+           },
+           "localizations": [
+             {
+               "description": "Unlimited recipes and searches",
+               "displayName": "Monthly Premium",
+               "locale": "en_US"
+             }
+           ],
+           "productID": "com.leftova.premium.monthly",
+           "recurringSubscriptionPeriod": "P1M",
+           "referenceName": "Monthly Premium",
+           "subscriptionGroupID": "leftova_premium",
+           "type": "RecurringSubscription"
+         },
+         {
+           "adHocOffers": [],
+           "codeOffers": [],
+           "displayPrice": "39.99",
+           "familyShareable": false,
+           "groupNumber": 1,
+           "internalID": "com.leftova.premium.annual",
+           "introductoryOffer": {
+             "displayPrice": "0",
+             "internalID": "leftova_annual_trial",
+             "numberOfPeriods": 1,
+             "paymentMode": "free",
+             "subscriptionPeriod": "P2W"
+           },
+           "localizations": [
+             {
+               "description": "Save 33% with annual billing",
+               "displayName": "Annual Premium",
+               "locale": "en_US"
+             }
+           ],
+           "productID": "com.leftova.premium.annual",
+           "recurringSubscriptionPeriod": "P1Y",
+           "referenceName": "Annual Premium",
+           "subscriptionGroupID": "leftova_premium",
+           "type": "RecurringSubscription"
+         }
+       ]
+     }
+   ],
+   "version": {
+     "major": 1,
+     "minor": 2
+   }
+ }
+ */

@@ -1,4 +1,3 @@
-// In Models/Recipe.swift
 import Foundation
 
 struct Recipe: Codable, Identifiable {
@@ -22,9 +21,9 @@ struct Recipe: Codable, Identifiable {
     var totalIngredients: Int?
     
     // Handle instructions as JSON string
-    private let instructionsJson: String?
+    private let instructionsJson: String?  // Keep the original name for the raw JSON
     
-    // Parsed instructions
+    // Parsed instructions - this is what the views use
     var instructions: [Instruction]? {
         guard let instructionsJson = instructionsJson else { return nil }
         guard let data = instructionsJson.data(using: .utf8) else { return nil }
@@ -54,7 +53,7 @@ struct Recipe: Codable, Identifiable {
         case prepTime = "prep_time"
         case cookTime = "cook_time"
         case difficulty, cuisine, nutrition
-        case instructionsJson = "instructions"
+        case instructionsJson = "instructions"  // Map "instructions" from DB to instructionsJson
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case matchCount = "match_count"

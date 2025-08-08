@@ -1,11 +1,3 @@
-//
-//  RecipeSearchView.swift
-//  Leftova
-//
-//  Created by Zach Rich on 8/6/25.
-//
-
-
 import SwiftUI
 
 struct RecipeSearchView: View {
@@ -19,6 +11,9 @@ struct RecipeSearchView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
+                // Add the usage limit banner at the top
+                UsageLimitBanner()
+                
                 // Search Mode Picker
                 Picker("Search Mode", selection: $searchMode) {
                     Text("By Ingredients").tag(SearchMode.ingredients)
@@ -27,25 +22,24 @@ struct RecipeSearchView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
-                // Search Input
+                // Search Input - Use simplified components without individual banners
                 if searchMode == .ingredients {
-                    IngredientInputView(ingredients: $viewModel.selectedIngredients)
+                    IngredientInputViewWithLimits(ingredients: $viewModel.selectedIngredients, showBanner: false)
                         .onChange(of: viewModel.selectedIngredients) { _ in
                             Task {
                                 await viewModel.searchRecipes()
                             }
                         }
                 } else {
-                    SearchBar(text: $viewModel.searchText)
-                        .padding(.horizontal)
-                        .onSubmit {
-                            Task {
-                                await viewModel.searchByText()
-                            }
+                    SearchBarWithLimits(showBanner: false) { query in
+                        viewModel.searchText = query
+                        Task {
+                            await viewModel.searchByText()
                         }
+                    }
                 }
                 
-                // Results
+                // Results (keep your existing RecipeListView)
                 if viewModel.isLoading {
                     Spacer()
                     ProgressView("Searching...")
@@ -54,6 +48,7 @@ struct RecipeSearchView: View {
                     Spacer()
                     Text(error)
                         .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
                         .padding()
                     Spacer()
                 } else {
@@ -69,20 +64,6 @@ struct RecipeSearchView: View {
                 }
             }
             .navigationTitle("Recipe Search")
-        }
-    }
-}
-
-struct SearchBar: View {
-    @Binding var text: String
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.gray)
-            
-            TextField("Search recipes...", text: $text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
         }
     }
 }

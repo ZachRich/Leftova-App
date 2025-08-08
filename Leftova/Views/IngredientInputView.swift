@@ -59,24 +59,4 @@ struct IngredientInputView: View {
     }
 }
 
-struct IngredientChip: View {
-    let ingredient: String
-    let onDelete: () -> Void
-    
-    var body: some View {
-        HStack(spacing: 4) {
-            Text(ingredient)
-                .font(.caption)
-            
-            Button(action: onDelete) {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.caption)
-            }
-        }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 6)
-        .background(Color.blue.opacity(0.1))
-        .foregroundColor(.blue)
-        .cornerRadius(15)
-    }
-}
+// IngredientChip is now in its own component file

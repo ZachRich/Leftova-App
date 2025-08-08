@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Pre-commit hook to prevent committing sensitive files and data
+# To install: cp .githooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Files that should never be committed
+FORBIDDEN_FILES=(
+    "Config.swift"
+    "Secrets.swift"
+    "Secrets.plist"
+    "*.env"
+    "apikeys.plist"
+    "GoogleService-Info.plist"
+)
+
+# Check for forbidden files
+for pattern in "${FORBIDDEN_FILES[@]}"; do
+    files=$(git diff --cached --name-only | grep -E "$pattern" || true)
+    if [ -n "$files" ]; then
+        echo -e "${RED}❌ ERROR: Attempting to commit sensitive file(s):${NC}"
+        echo "$files"
+        echo -e "${YELLOW}These files contain sensitive data and should not be committed.${NC}"
+        echo -e "${YELLOW}Remove them from staging with: git reset HEAD <file>${NC}"
+        exit 1
+    fi
+done
+
+# Check for potential API keys or secrets in staged files
+# Look for common patterns
+patterns=(
+    "supabase.*=.*ey[A-Za-z0-9]"  # Supabase keys often start with 'ey'
+    "api[_-]?key.*=.*['\"].*['\"]"
+    "secret.*=.*['\"].*['\"]"
+    "password.*=.*['\"].*['\"]"
+    "token.*=.*['\"].*['\"]"
+    "Bearer\s+[A-Za-z0-9\-\._~\+\/]+=*"
+)
+
+for pattern in "${patterns[@]}"; do
+    result=$(git diff --cached --name-only -z | xargs -0 grep -E "$pattern" 2>/dev/null || true)
+    if [ -n "$result" ]; then
+        echo -e "${RED}❌ WARNING: Potential secrets detected in staged files:${NC}"
+        echo "$result" | head -5
+        echo -e "${YELLOW}Please review these changes carefully.${NC}"
+        echo -e "${YELLOW}If these are real secrets, remove them before committing.${NC}"
+        echo -n "Continue anyway? (y/n): "
+        read -r response
+        if [ "$response" != "y" ]; then
+            exit 1
+        fi
+    fi
+done
+
+# Check if Config.swift exists and is not gitignored
+if [ -f "Leftova/Config/Config.swift" ]; then
+    if ! git check-ignore "Leftova/Config/Config.swift" > /dev/null 2>&1; then
+        echo -e "${RED}❌ ERROR: Config.swift exists but is not gitignored!${NC}"
+        echo -e "${YELLOW}This file contains sensitive API keys.${NC}"
+        echo -e "${YELLOW}Add it to .gitignore immediately.${NC}"
+        exit 1
+    fi
+fi
+
+echo -e "${GREEN}✅ Pre-commit security check passed${NC}"

@@ -123,54 +123,7 @@ struct ProfileView: View {
     }
 }
 
-@MainActor
-class ProfileViewModel: ObservableObject {
-    @Published var savedRecipesCount = 0
-    @Published var isLoading = false
-    @Published var showingDeleteAccount = false
-    @Published var showingError = false
-    @Published var errorMessage: String?
-    
-    private let authService = AuthenticationService.shared
-    private let repository: RecipeRepositoryProtocol = RecipeRepository()
-    
-    func loadStats() async {
-        do {
-            let savedIds = try await repository.getSavedRecipeIds()
-            savedRecipesCount = savedIds.count
-        } catch {
-            print("Failed to load stats: \(error)")
-        }
-    }
-    
-    func signOut() async {
-        isLoading = true
-        
-        do {
-            try await authService.signOut()
-        } catch {
-            errorMessage = "Failed to sign out: \(error.localizedDescription)"
-            showingError = true
-        }
-        
-        isLoading = false
-    }
-    
-    func deleteAccount() async {
-        isLoading = true
-        
-        do {
-            // In a real implementation, you would call a delete account API
-            // For now, we'll just sign out
-            try await authService.signOut()
-        } catch {
-            errorMessage = "Failed to delete account: \(error.localizedDescription)"
-            showingError = true
-        }
-        
-        isLoading = false
-    }
-}
+// ProfileViewModel is now in its own file
 
 struct ChangePasswordView: View {
     @State private var currentPassword = ""

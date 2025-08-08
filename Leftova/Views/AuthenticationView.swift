@@ -152,11 +152,23 @@ struct AuthenticationView: View {
                             
                             // Reset Password Success Message
                             if viewModel.resetPasswordSent {
-                                Text("Password reset email sent! Check your inbox.")
-                                    .font(.caption)
-                                    .foregroundColor(.green)
-                                    .multilineTextAlignment(.center)
-                                    .padding(.horizontal)
+                                VStack(spacing: 8) {
+                                    Text("Password reset email sent!")
+                                        .font(.caption)
+                                        .foregroundColor(.green)
+                                        .fontWeight(.semibold)
+                                    
+                                    Text("Check your email and click the reset link to set a new password.")
+                                        .font(.caption2)
+                                        .foregroundColor(.secondary)
+                                        .multilineTextAlignment(.center)
+                                    
+                                    Text("Note: The link expires in 1 hour")
+                                        .font(.caption2)
+                                        .foregroundColor(.secondary)
+                                        .italic()
+                                }
+                                .padding(.horizontal)
                             }
                             
                             // Auth Button
@@ -251,11 +263,19 @@ struct ResetPasswordView: View {
                         .fontWeight(.semibold)
                         .padding(.top)
                     
-                    Text("Enter your email address and we'll send you a link to reset your password.")
-                        .font(.body)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
+                    VStack(spacing: 8) {
+                        Text("Enter your email address and we'll send you a link to reset your password.")
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                        
+                        Text("Important: You'll need to click the link in the email to set a new password.")
+                            .font(.caption)
+                            .foregroundColor(.orange)
+                            .multilineTextAlignment(.center)
+                            .padding(.top, 4)
+                    }
+                    .padding(.horizontal)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Email")

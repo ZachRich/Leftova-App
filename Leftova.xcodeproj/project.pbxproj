@@ -3,19 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6AAC57662DF3262600B6434E /* LeftovaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57652DF3262600B6434E /* LeftovaApp.swift */; };
-		6AAC57682DF3262600B6434E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57672DF3262600B6434E /* ContentView.swift */; };
-		6AAC576A2DF3262A00B6434E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC57692DF3262A00B6434E /* Assets.xcassets */; };
-		6AAC576D2DF3262A00B6434E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAC576C2DF3262A00B6434E /* Preview Assets.xcassets */; };
-		6AAC576F2DF3262A00B6434E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC576E2DF3262A00B6434E /* Persistence.swift */; };
-		6AAC57722DF3262A00B6434E /* Leftova.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57702DF3262A00B6434E /* Leftova.xcdatamodeld */; };
-		6AAC577C2DF3262A00B6434E /* LeftovaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC577B2DF3262A00B6434E /* LeftovaTests.swift */; };
-		6AAC57862DF3262A00B6434E /* LeftovaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57852DF3262A00B6434E /* LeftovaUITests.swift */; };
-		6AAC57882DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC57872DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift */; };
+		2BBD6F912E44CF800057F848 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2BBD6F902E44CF800057F848 /* Kingfisher */; };
+		2BBD6F942E44CF970057F848 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 2BBD6F932E44CF970057F848 /* Auth */; };
+		2BBD6F962E44CF970057F848 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 2BBD6F952E44CF970057F848 /* Functions */; };
+		2BBD6F982E44CF970057F848 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 2BBD6F972E44CF970057F848 /* PostgREST */; };
+		2BBD6F9A2E44CF970057F848 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 2BBD6F992E44CF970057F848 /* Realtime */; };
+		2BBD6F9C2E44CF970057F848 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 2BBD6F9B2E44CF970057F848 /* Storage */; };
+		2BBD6F9F2E44CFA30057F848 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2BBD6F9E2E44CFA30057F848 /* Supabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,24 +35,26 @@
 
 /* Begin PBXFileReference section */
 		6AAC57622DF3262600B6434E /* Leftova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leftova.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AAC57652DF3262600B6434E /* LeftovaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftovaApp.swift; sourceTree = "<group>"; };
-		6AAC57672DF3262600B6434E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6AAC57692DF3262A00B6434E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6AAC576C2DF3262A00B6434E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6AAC576E2DF3262A00B6434E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		6AAC57712DF3262A00B6434E /* Leftova.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Leftova.xcdatamodel; sourceTree = "<group>"; };
 		6AAC57772DF3262A00B6434E /* LeftovaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeftovaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AAC577B2DF3262A00B6434E /* LeftovaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftovaTests.swift; sourceTree = "<group>"; };
 		6AAC57812DF3262A00B6434E /* LeftovaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeftovaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AAC57852DF3262A00B6434E /* LeftovaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftovaUITests.swift; sourceTree = "<group>"; };
-		6AAC57872DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftovaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2BBD6FF42E4521000057F848 /* Leftova */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Leftova; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6AAC575F2DF3262600B6434E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BBD6F9F2E44CFA30057F848 /* Supabase in Frameworks */,
+				2BBD6F9C2E44CF970057F848 /* Storage in Frameworks */,
+				2BBD6F982E44CF970057F848 /* PostgREST in Frameworks */,
+				2BBD6F962E44CF970057F848 /* Functions in Frameworks */,
+				2BBD6F942E44CF970057F848 /* Auth in Frameworks */,
+				2BBD6F9A2E44CF970057F848 /* Realtime in Frameworks */,
+				2BBD6F912E44CF800057F848 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +75,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BBD6F9D2E44CFA30057F848 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6AAC57592DF3262600B6434E = {
 			isa = PBXGroup;
 			children = (
-				6AAC57642DF3262600B6434E /* Leftova */,
+				2BBD6FF42E4521000057F848 /* Leftova */,
 				6AAC577A2DF3262A00B6434E /* LeftovaTests */,
 				6AAC57842DF3262A00B6434E /* LeftovaUITests */,
+				2BBD6F9D2E44CFA30057F848 /* Frameworks */,
 				6AAC57632DF3262600B6434E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,31 +103,9 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6AAC57642DF3262600B6434E /* Leftova */ = {
-			isa = PBXGroup;
-			children = (
-				6AAC57652DF3262600B6434E /* LeftovaApp.swift */,
-				6AAC57672DF3262600B6434E /* ContentView.swift */,
-				6AAC57692DF3262A00B6434E /* Assets.xcassets */,
-				6AAC576E2DF3262A00B6434E /* Persistence.swift */,
-				6AAC57702DF3262A00B6434E /* Leftova.xcdatamodeld */,
-				6AAC576B2DF3262A00B6434E /* Preview Content */,
-			);
-			path = Leftova;
-			sourceTree = "<group>";
-		};
-		6AAC576B2DF3262A00B6434E /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				6AAC576C2DF3262A00B6434E /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		6AAC577A2DF3262A00B6434E /* LeftovaTests */ = {
 			isa = PBXGroup;
 			children = (
-				6AAC577B2DF3262A00B6434E /* LeftovaTests.swift */,
 			);
 			path = LeftovaTests;
 			sourceTree = "<group>";
@@ -127,8 +113,6 @@
 		6AAC57842DF3262A00B6434E /* LeftovaUITests */ = {
 			isa = PBXGroup;
 			children = (
-				6AAC57852DF3262A00B6434E /* LeftovaUITests.swift */,
-				6AAC57872DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift */,
 			);
 			path = LeftovaUITests;
 			sourceTree = "<group>";
@@ -147,6 +131,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2BBD6FF42E4521000057F848 /* Leftova */,
 			);
 			name = Leftova;
 			productName = Leftova;
@@ -221,6 +208,10 @@
 				Base,
 			);
 			mainGroup = 6AAC57592DF3262600B6434E;
+			packageReferences = (
+				2BBD6F8F2E44CF640057F848 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				2BBD6F922E44CF970057F848 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			productRefGroup = 6AAC57632DF3262600B6434E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,8 +228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AAC576D2DF3262A00B6434E /* Preview Assets.xcassets in Resources */,
-				6AAC576A2DF3262A00B6434E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +252,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AAC576F2DF3262A00B6434E /* Persistence.swift in Sources */,
-				6AAC57722DF3262A00B6434E /* Leftova.xcdatamodeld in Sources */,
-				6AAC57682DF3262600B6434E /* ContentView.swift in Sources */,
-				6AAC57662DF3262600B6434E /* LeftovaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AAC577C2DF3262A00B6434E /* LeftovaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AAC57882DF3262A00B6434E /* LeftovaUITestsLaunchTests.swift in Sources */,
-				6AAC57862DF3262A00B6434E /* LeftovaUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +460,6 @@
 		6AAC578F2DF3262A00B6434E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -498,7 +479,6 @@
 		6AAC57902DF3262A00B6434E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -518,7 +498,6 @@
 		6AAC57922DF3262A00B6434E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 763CX3FV62;
@@ -536,7 +515,6 @@
 		6AAC57932DF3262A00B6434E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 763CX3FV62;
@@ -592,18 +570,62 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCVersionGroup section */
-		6AAC57702DF3262A00B6434E /* Leftova.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				6AAC57712DF3262A00B6434E /* Leftova.xcdatamodel */,
-			);
-			currentVersion = 6AAC57712DF3262A00B6434E /* Leftova.xcdatamodel */;
-			path = Leftova.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+/* Begin XCRemoteSwiftPackageReference section */
+		2BBD6F8F2E44CF640057F848 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.5.0;
+			};
 		};
-/* End XCVersionGroup section */
+		2BBD6F922E44CF970057F848 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2BBD6F902E44CF800057F848 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BBD6F8F2E44CF640057F848 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		2BBD6F932E44CF970057F848 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BBD6F922E44CF970057F848 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		2BBD6F952E44CF970057F848 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BBD6F922E44CF970057F848 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		2BBD6F972E44CF970057F848 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BBD6F922E44CF970057F848 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		2BBD6F992E44CF970057F848 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BBD6F922E44CF970057F848 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		2BBD6F9B2E44CF970057F848 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BBD6F922E44CF970057F848 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		2BBD6F9E2E44CFA30057F848 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BBD6F922E44CF970057F848 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6AAC575A2DF3262600B6434E /* Project object */;
 }
